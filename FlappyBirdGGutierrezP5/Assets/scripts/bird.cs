@@ -24,7 +24,7 @@ public class bird : MonoBehaviour
             if (Input.GetMouseButtonDown (0))
             {
                 rb2d.velocity = Vector2.zero;
-                rb2d.AddForce(new Vector2(0, upForce));
+                rb2d.AddForce(new Vector2 (0, upForce));
             }
         }
         
