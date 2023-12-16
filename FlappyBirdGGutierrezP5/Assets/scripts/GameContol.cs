@@ -15,7 +15,15 @@ public class GameContol : MonoBehaviour
 
     private int score = 0;
 
+    AudioSource audioSource;
+    public AudioClip scoreSound;
+
     // Start is called before the first frame update
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Awake()
     {
         if (instance == null)
@@ -45,10 +53,15 @@ public class GameContol : MonoBehaviour
         }
         score++;
         scoreText.text = "Score: " + score.ToString ();
+        PlaySound(scoreSound);
     }
     public void BirdDied()
     {
         gameOverText.SetActive(true);
         gameOver = true;
+    }
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
